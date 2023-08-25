@@ -15,13 +15,15 @@ const Home: NextPage = () => {
 
   return (
     <PageLayout title="Home">
-      <h1 className=" text-4xl font-bold text-rose-500">
+      <h1 className="text-center text-4xl font-bold text-rose-500">
         Welcome to Presto Paninis!
       </h1>
-      <h2 className="mb-4 text-3xl text-rose-300">
+      <h2 className="mb-4 text-center text-3xl text-rose-300">
         {countOrders.data || 0} happy customers have placed an order
       </h2>
-      <Button onClick={onClick}>Start an order</Button>
+      <Button onClick={onClick} className="self-center">
+        Start an order
+      </Button>
     </PageLayout>
   );
 };

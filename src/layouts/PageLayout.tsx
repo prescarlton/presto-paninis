@@ -27,9 +27,7 @@ const PageLayout = ({ children, title }: IPageLayout) => {
           </Button>
           <UserButton afterSignOutUrl="/sign-in" showName />
         </div>
-        <main className="flex flex-1 flex-col items-center justify-center">
-          {children}
-        </main>
+        <main className="flex flex-1 flex-col  px-4">{children}</main>
       </div>
     </>
   );

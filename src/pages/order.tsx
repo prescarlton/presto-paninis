@@ -63,7 +63,7 @@ const OrderPage: NextPage = () => {
     <PageLayout title="Place an Order">
       <div className="flex flex-col gap-3">
         <h2 className="text-3xl font-bold ">
-          Sandwich of the day: <span className="text-red-500">Italian</span>
+          Today's sandwich: <span className="text-red-500">Italian</span>
         </h2>
         <div className="flex flex-wrap gap-1">
           {ingredients.map((ingredient) => (

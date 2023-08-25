@@ -32,7 +32,10 @@ export const ordersRouter = createTRPCRouter({
   listAllOrders: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.order.findMany({
       orderBy: {
-        completed: "asc",
+        created: "asc",
+      },
+      where: {
+        completed: false,
       },
     });
   }),
