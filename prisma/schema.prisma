@@ -2,16 +2,24 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "sqlite"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Order {
+  id              Int     @id @default(autoincrement())
+  orderedBy       String  @map("ordered_by")
+  orderedByUserId String  @map("ordered_by_user_id")
+  order           String
+  orderMods       String? @map("order_mods")
+  completed       Boolean @default(false)
+
+  created DateTime @default(now())
+  updated DateTime @default(now()) @updatedAt
+
+  @@map("orders")
 }

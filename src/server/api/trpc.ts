@@ -18,7 +18,10 @@
  */
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 import { getAuth } from "@clerk/nextjs/server";
-import type { SignedInAuthObject,SignedOutAuthObject } from "@clerk/nextjs/api";
+import type {
+  SignedInAuthObject,
+  SignedOutAuthObject,
+} from "@clerk/nextjs/api";
 
 import { prisma } from "../db";
 
@@ -34,7 +37,7 @@ interface AuthContext {
  * - trpc's `createSSGHelpers` where we don't have req/res
  * @see https://create.t3.gg/en/usage/trpc#-servertrpccontextts
  */
-const createInnerTRPCContext = ({ auth }: AuthContext  ) => {
+const createInnerTRPCContext = ({ auth }: AuthContext) => {
   return {
     auth,
     prisma,
@@ -47,8 +50,6 @@ const createInnerTRPCContext = ({ auth }: AuthContext  ) => {
  * @link https://trpc.io/docs/context
  */
 export const createTRPCContext = async (opts: CreateNextContextOptions) => {
-  
-
   return createInnerTRPCContext({ auth: getAuth(opts.req) });
 };
 
