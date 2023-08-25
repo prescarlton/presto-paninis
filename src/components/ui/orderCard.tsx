@@ -9,7 +9,7 @@ const OrderCard = ({ order }: IOrderCard) => {
   const completeOrder = api.orders.completeOrder.useMutation();
 
   const onClickComplete = async () => {
-    await completeOrder.mutateAsync();
+    // await completeOrder.mutateAsync({ orderId: order.id });
   };
 
   return (
